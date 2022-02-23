@@ -1,0 +1,58 @@
+<html>
+    <head>User Form</head>
+    <title>Form</title>
+    <link rel="stylesheet" href="static/style.css">
+    <body>
+        <form style="margin-top: 2%;" action="/add" method = "POST">
+            <div>
+                <div style="float: left;">
+                    <label>Name:</label>
+                </div>
+                <div style="margin-left: 10%;">
+                    <input type="text" id="name" name="name">
+                </div>
+            </div>
+
+            <div style="margin-top: 2%;">
+                <div style="float: left;">
+                    <label>Mobile no:</label>
+                </div>
+                <div style="margin-left: 10%;">
+                    <input type="text" id="mob" name="mob">
+                </div>
+            </div>
+
+            <div style="margin-top: 2%;">
+                <div style="float: left;">
+                    <label>Address:</label>
+                </div>
+                <div style="margin-left: 10%;">
+                    <input type="text" id="adr" name="adr">
+                </div>
+            </div>
+
+            <input type="submit" value="submit">
+            
+        </form>
+        <table>
+            <tr>
+                <th class="table">Name</th>
+                <th class="table">Mobile No</th>
+                <th class="table">Address</th>
+                <th class="table">Actions</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td class="table">{{ row.name }}</td>
+                <td class="table">{{ row.mobileNo }}</td>
+                <td class="table">{{ row.address }}</td>
+                <td>
+                    <a href="/delete/{{row.id}}">delete</a>
+                    <a href="/update/{{row.id}}">update</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+</html>
